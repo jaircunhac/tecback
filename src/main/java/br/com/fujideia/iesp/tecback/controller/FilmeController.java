@@ -18,5 +18,20 @@ public class FilmeController {
     public Filme salvar(@Valid @RequestBody Filme filme){
         return service.salvar(filme);
     }
-
+    @PutMapping
+    public Filme atualizar(@RequestBody Filme filme){
+        return service.atualizar(filme);
+    }
+    @GetMapping
+    public List<Filme> listarTodos(){
+        return service.listarTodos();
+    }
+    @GetMapping("{/id}")
+    public Filme buscarPorId(@PathVariable Integer id){
+        return service.buscarPorId(id);
+    }
+    @DeleteMapping("{/id}")
+    public void excluirPorId(@PathVariable Integer id){
+        service.excluir(id);
+    }
 }
