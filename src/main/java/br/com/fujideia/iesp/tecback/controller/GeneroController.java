@@ -22,7 +22,4 @@ public class GeneroController {
     public Genero salvar(@RequestBody Genero genero){
         return generoservice.salvar(genero);
     }
-
-
-
 }

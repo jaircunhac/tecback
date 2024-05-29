@@ -21,7 +21,7 @@ public interface FilmeRepository extends JpaRepository<Filme, Integer> {
     List<Filme> buscarFilmePorTitulo(@Param("titulo") String filme);
 
     @Query("select f from Filme f" +
-           "where f.titulo=:titulo " +
-           "order by f.titulo asc")
+            " where f.titulo=:titulo " +
+            " order by f.titulo asc")
     List<Filme> buscarFilmePorTituloOrdenado(@Param("titulo")String titulo);
 }

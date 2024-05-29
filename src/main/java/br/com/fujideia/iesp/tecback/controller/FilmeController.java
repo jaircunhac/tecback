@@ -1,7 +1,6 @@
 package br.com.fujideia.iesp.tecback.controller;
 
 import br.com.fujideia.iesp.tecback.model.Filme;
-import br.com.fujideia.iesp.tecback.repository.FilmeRepository;
 import br.com.fujideia.iesp.tecback.service.FilmeService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -26,11 +25,11 @@ public class FilmeController {
     public List<Filme> listarTodos(){
         return service.listarTodos();
     }
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public Filme buscarPorId(@PathVariable Integer id){
         return service.buscarPorId(id);
     }
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public void excluirPorId(@PathVariable Integer id){
         service.excluir(id);
     }
