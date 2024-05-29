@@ -20,7 +20,7 @@ public class Filme {
     @Transient
     private Integer anoLancamento;
 
-    @ManyToOne
-    @JoinColumn(name = "genero_id", nullable = false)
-    private Genero genero;
+//    @ManyToOne
+//    @JoinColumn(name = "genero_id", nullable = false)
+//    private Genero genero;
 }
