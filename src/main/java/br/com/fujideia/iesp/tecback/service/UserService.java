@@ -1,11 +1,13 @@
 package br.com.fujideia.iesp.tecback.service;
 
 import br.com.fujideia.iesp.tecback.model.User;
+import br.com.fujideia.iesp.tecback.model.dto.UpdateUserDTO;
 import br.com.fujideia.iesp.tecback.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -16,7 +18,7 @@ public class UserService {
         return repository.save(user);
     }
 
-    public List<User> listarUsuarios(User user){
+    public List<User> listarUsuarios(){
         return repository.findAll();
     }
 
@@ -24,10 +26,19 @@ public class UserService {
         repository.deleteById(CPF);
     }
 
-    public User atualizar(User user){
-        if (user.getEmail()==null){
-            throw new RuntimeException("User sem email");
+    public User atualizar(String CPF, UpdateUserDTO userDto){
+        Optional<User> optionalUser = repository.findById(CPF);
+        if (!optionalUser.isPresent()) {
+            throw new RuntimeException("User not found with CPF: " + CPF);
         }
+
+        User user = optionalUser.get();
+
+        user.setNomeCompleto(userDto.getNomeCompleto());
+        user.setEmail(userDto.getEmail());
+        user.setDataDeNascimento(userDto.getDataDeNascimento());
+        user.setSenha(userDto.getSenha());
+
         return repository.save(user);
     }
 }
