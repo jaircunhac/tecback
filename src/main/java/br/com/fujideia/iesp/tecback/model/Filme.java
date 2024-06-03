@@ -1,11 +1,13 @@
 package br.com.fujideia.iesp.tecback.model;
 
 import br.com.fujideia.iesp.tecback.validator.IdadeRange;
+import br.com.fujideia.iesp.tecback.validator.NotaRange;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,8 +23,8 @@ public class Filme {
     @Transient
     private Integer anoLancamento;
     private String trailer;
-//    @NotaRange(min = 0, max = 5)
-//    private int relevancia;
+    @NotaRange
+    private Integer relevancia;
     private LocalTime duracao;
 
 //    @ManyToOne
