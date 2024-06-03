@@ -18,7 +18,7 @@ public class CepController {
     private ViaCepClient viaCepClient;
 
     @Operation(
-            summary = "Retorna o cpf")
+            summary = "Retorna um CEP")
     @GetMapping("/{cep}")
     public String consultaCep(@PathVariable String cep){
         return viaCepClient.consultaEndereco(cep);
