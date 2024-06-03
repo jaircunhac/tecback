@@ -2,6 +2,7 @@ package br.com.fujideia.iesp.tecback.controller;
 
 import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.model.Genero;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,8 @@ public class GeneroController {
     @Autowired
     private GeneroService generoservice;
 
+    @Operation(
+            summary = "Salvar um novo genero")
     @PostMapping
     public Genero salvar(@RequestBody Genero genero){
         return generoservice.salvar(genero);

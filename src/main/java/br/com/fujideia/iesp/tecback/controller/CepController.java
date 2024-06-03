@@ -2,6 +2,7 @@ package br.com.fujideia.iesp.tecback.controller;
 
 import br.com.fujideia.iesp.tecback.clients.ViaCepClient;
 import br.com.fujideia.iesp.tecback.model.Endereco;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,8 @@ public class CepController {
     @Autowired
     private ViaCepClient viaCepClient;
 
+    @Operation(
+            summary = "Retorna o cpf")
     @GetMapping("/{cep}")
     public String consultaCep(@PathVariable String cep){
         return viaCepClient.consultaEndereco(cep);
