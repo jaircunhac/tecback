@@ -15,6 +15,8 @@ Nossa aplicação é uma API Rest, feita utilizando Java Spring Boot, um sistema
 
 ## Instruções para executar o projeto
 
+OBS: para utilizar a API e realizar requisições, deve-se rodar a API localmente e utilizar o Postman para fazer as requisições HTTP, ou enquanto a API está rodando abrir no seu navegador e colocar na URL: Localhost:8080/swagger-ui/index.html para abrir o swagger e testar diretamente.
+
 # Windows
 - Instalar Git
 - Criar uma pasta para o projeto, em seguida clicar com o botão direito e selecionar a opção "Git Bash here"
