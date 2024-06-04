@@ -25,11 +25,15 @@ public class GeneroController {
         return generoservice.salvar(genero);
     }
 
+    @Operation(
+            summary = "Listar todos os generos")
     @GetMapping
     public List<Genero> listarTodos() {
         return generoservice.listarTodos();
     }
 
+    @Operation(
+            summary = "Deletar um genero por ID")
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable Long id) {
         generoservice.excluir(id);

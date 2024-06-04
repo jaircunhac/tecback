@@ -1,5 +1,6 @@
 package br.com.fujideia.iesp.tecback.controller;
 
+import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.model.User;
 import br.com.fujideia.iesp.tecback.model.dto.UpdateUserDTO;
 import br.com.fujideia.iesp.tecback.service.UserService;
@@ -40,5 +41,11 @@ public class UserController {
     @PutMapping("/{CPF}")
     public User atualizar(@PathVariable String CPF, @RequestBody UpdateUserDTO userDTO){
         return service.atualizar(CPF, userDTO);
+    }
+    @Operation(
+            summary = "Listar um usuário existente pelo cpf")
+    @GetMapping("/{CPF}")
+    public User buscarPorId(@PathVariable String CPF){
+        return service.buscarPorId(CPF);
     }
 }

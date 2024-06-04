@@ -1,6 +1,7 @@
 package br.com.fujideia.iesp.tecback.service;
 
 import br.com.fujideia.iesp.tecback.model.Cartao;
+import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.repository.CartaoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,9 @@ public class CartaoService {
 
     public List<Cartao> listarCartoes(){
         return repository.findAll();
+    }
+
+    public Cartao buscarPorId(String numero){
+        return repository.findById(numero).get();
     }
 }

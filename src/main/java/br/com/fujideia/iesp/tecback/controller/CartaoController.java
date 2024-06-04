@@ -1,6 +1,7 @@
 package br.com.fujideia.iesp.tecback.controller;
 
 import br.com.fujideia.iesp.tecback.model.Cartao;
+import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.service.CartaoService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -38,5 +39,12 @@ public class CartaoController {
     @DeleteMapping("/{numero}")
     public void delete(@PathVariable String numero){
         service.deleteCartao(numero);
+    }
+
+    @Operation (
+            summary = "Retornar um cartao pelo numero")
+    @GetMapping("/{numero}")
+    public Cartao buscarPorId(@PathVariable String numero){
+        return service.buscarPorId(numero);
     }
 }

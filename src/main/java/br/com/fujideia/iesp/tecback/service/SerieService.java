@@ -1,5 +1,6 @@
 package br.com.fujideia.iesp.tecback.service;
 
+import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.model.Serie;
 import br.com.fujideia.iesp.tecback.repository.SerieRepository;
 import lombok.AllArgsConstructor;
@@ -29,5 +30,9 @@ public class SerieService {
 
     public List<Serie> listarTodos(){
         return repository.findAll();
+    }
+
+    public Serie buscarPorId(Integer id){
+        return repository.findById(id).get();
     }
 }

@@ -1,5 +1,6 @@
 package br.com.fujideia.iesp.tecback.service;
 
+import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.model.User;
 import br.com.fujideia.iesp.tecback.model.dto.UpdateUserDTO;
 import br.com.fujideia.iesp.tecback.repository.UserRepository;
@@ -40,5 +41,9 @@ public class UserService {
         user.setSenha(userDto.getSenha());
 
         return repository.save(user);
+    }
+
+    public User buscarPorId(String CPF){
+        return repository.findById(CPF).get();
     }
 }

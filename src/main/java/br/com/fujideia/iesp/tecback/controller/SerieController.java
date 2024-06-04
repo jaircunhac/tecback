@@ -1,5 +1,6 @@
 package br.com.fujideia.iesp.tecback.controller;
 
+import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.model.Serie;
 import br.com.fujideia.iesp.tecback.service.SerieService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,6 +33,11 @@ public class SerieController {
     @GetMapping
     public List<Serie> listarTodos(){
         return service.listarTodos();
+    }
+    @Operation(summary = "Listar Serie por ID")
+    @GetMapping("/{id}")
+    public Serie buscarPorId(@PathVariable Integer id){
+        return service.buscarPorId(id);
     }
 
     @Operation(summary = "Deleta uma serie existente pelo id")
