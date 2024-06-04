@@ -21,7 +21,7 @@ public class FilmeService {
         return repository.findAll();
     }
 
-    public Filme atualizar(Filme filme){
+    public Filme atualizar(Integer id, Filme filme){
         if (filme.getId()==null){
             throw new RuntimeException("Filme sem ID");
         }

@@ -3,6 +3,7 @@ package br.com.fujideia.iesp.tecback.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -17,4 +18,7 @@ public class User {
     private LocalDate dataDeNascimento;
     private String email;
     private String senha;
+    @Transient
+    private String confirmarsenha;
+
 }

@@ -5,15 +5,14 @@ import br.com.fujideia.iesp.tecback.model.Genero;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import br.com.fujideia.iesp.tecback.service.GeneroService;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/genero")
+@RequestMapping("/genero")
 
 public class GeneroController {
     @Autowired
@@ -22,7 +21,18 @@ public class GeneroController {
     @Operation(
             summary = "Salvar um novo genero")
     @PostMapping
-    public Genero salvar(@RequestBody Genero genero){
+    public Genero salvar(@RequestBody Genero genero) {
         return generoservice.salvar(genero);
+    }
+
+    @GetMapping
+    public List<Genero> listarTodos() {
+        return generoservice.listarTodos();
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        generoservice.excluir(id);
+
     }
 }

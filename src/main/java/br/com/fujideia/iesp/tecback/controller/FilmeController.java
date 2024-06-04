@@ -23,9 +23,9 @@ public class FilmeController {
     }
     @Operation (
             summary = "atualizar um filme existente")
-    @PutMapping
-    public Filme atualizar(@RequestBody Filme filme){
-        return service.atualizar(filme);
+    @PutMapping("/{id}")
+    public Filme atualizar(@PathVariable Integer id, @RequestBody Filme filme){
+        return service.atualizar(id, filme);
     }
     @Operation (
             summary = "Listar todos os filmes disponíveis")

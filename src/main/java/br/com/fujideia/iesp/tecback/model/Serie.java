@@ -3,17 +3,16 @@ package br.com.fujideia.iesp.tecback.model;
 import br.com.fujideia.iesp.tecback.validator.IdadeRange;
 import br.com.fujideia.iesp.tecback.validator.NotaRange;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class Filme {
+public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
